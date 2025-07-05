@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
       - name: Prepare build files
@@ -18,7 +18,7 @@ jobs:
       - name: Gradle build
         run: gradle build --refresh-dependencies || true
       - name: Upload Gradle cache
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gradle-cache
           path: ~/.gradle/caches/modules-2/files-2.1/dev.flutter.flutter-gradle-plugin/
