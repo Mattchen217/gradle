@@ -16,7 +16,9 @@ jobs:
           echo "plugins { id 'dev.flutter.flutter-gradle-plugin' version '2.0.0' }" > build.gradle
           echo "pluginManagement { repositories { gradlePluginPortal(); google(); mavenCentral(); maven { url 'https://storage.googleapis.com/download.flutter.io' }; maven { url 'https://storage.flutter-io.cn/download.flutter.io' } } }" > settings.gradle
       - name: Gradle build
-        run: gradle build --refresh-dependencies || true
+        run: gradle help --refresh-dependencies || true
+      - name: List plugin cache
+        run: ls -l ~/.gradle/caches/modules-2/files-2.1/dev.flutter.flutter-gradle-plugin/ || true
       - name: Upload Gradle cache
         uses: actions/upload-artifact@v4
         with:
